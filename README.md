@@ -92,8 +92,8 @@ pipenv install
 
 I used this [repo](https://github.com/nindate/ml-zoomcamp-exercises/blob/main/how-to-use-pythonanywhere.md) from this amzing guy [nindate](https://github.com/nindate) to deploy my app to pythonanywhere.
 
-## The project in details
-Most of the magic happened in [main_notebook.ipynb](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/main_notebook.ipynb) where I did the following:
+## The project in details (Steps to Make Similar Predictions Project)  
+Most of the magic happened in [main_notebook.ipynb](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/main_notebook.ipynb) where I did the following:  
 1. Data Preparation.
 2. Exploratory data analysis (EDA)  
     - Explore our data more.
@@ -102,20 +102,36 @@ Most of the magic happened in [main_notebook.ipynb](https://github.com/Abdassala
     - Looking at the target "y" distribution.
     - Feauture important analysis.
 3. Training & Tuning Different Models
-    - [Splitting the data.](#3.1-Splitting-the-data.)
-    - [One-hot encoding.](#3.2-One-hot-encoding.)
-    - [Evaluation Metrics.](#3.3-Evaluation-Metrics)
-    - [LogisticRegression model.](#3.4-LogisticRegression-model.)
-    - [DecisionTreeClassifier model.](#3.5-DecisionTreeClassifier-model.)
-        1. [Best DecisionTreeClassifier model.](#3.6.A.The-Best-Random-Forest-Model)
-    - [RandomForestClassifier model.](#3.6-RandomForestClassifier-model.)
-        1. [Best RandomForestClassifier model](#3.6.A.The-Best-Random-Forest-Model)
-    - [XGBoost model.](#3.7-XGBoost-model.)
-        1. [Best XGBoost model.](#XGB-model-with-the-best-parameters-we-got-from-the-(GridSearchCV).**)
+    - Splitting the data.
+    - One-hot encoding.
+    - Evaluation Metrics.
+    - LogisticRegression model.
+    - DecisionTreeClassifier model.
+        1. Best DecisionTreeClassifier model.
+    - RandomForestClassifier model.
+        1. Best RandomForestClassifier model
+    - XGBoost model.
+        1. Best XGBoost model.
+4. Selecting the best model (XGBoost) and tune its parameters manually alone on different notebook [Tuning_XGB_parameters.ipynb](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/Tuning_XGB_parameters.ipynb) 
+5. Testing this best model on different dataset on a different notebook [Final_Test.ipynb](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/Final_Test.ipynb) and saving the model using pickle to this binary file [model_1.bin](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/model_1.bin).
+6. enhacing the last file and making it a script [train.py](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/train.py), so that when you run it, it will train the best model and save it to the same model_1.bin file.
+7. deploying this model locally using flask in this script [predict.py](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/predict.py).
+8. (optional) deploying the best model by using production ready service like (gunicorn or waitress).
+9. testing the deployed webapp locally by running this script [predict-test.py](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/predict-test.py), which will predict a customer desicion.
+10. deploying the webapp to docker locally by using this file [Dockerfile](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/Dockerfile), to run it you need to open a terminal in the same folder containing all files of this repo, then run these commands to deploy and run it.
+```py
+docker build -t zoomcamp-midterm_project .
+docker run -it --rm -p 9696:9696 zoomcamp-midterm_project
+```
+11. testing the deployed webapp on docker by running this script [predict-test.py]
+12. deploying the webapp to cloud; steps to do this in this [repo](https://github.com/nindate/ml-zoomcamp-exercises/blob/main/how-to-use-pythonanywhere.md) from this amzing guy [nindate](https://github.com/nindate)
+12. Testing the deployed webapp on the cloud by running this script [predict-test-pythonanywhere.py](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/predict-test-pythonanywhere.py).
+13. side note: you should install all the depandancies you need and make a virtual environment like pipenv explained above.
 
+## Note
+If you like my project, I appreciate you starring this repo. Please feel free to fork the content and contact me if you have any questions.
 
-
-
+[my linkedIn account](https://www.linkedin.com/in/abdassalam-ahmad/)
 
 
 
