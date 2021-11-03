@@ -41,7 +41,7 @@ The smallest datasets are provided to test more computationally demanding machin
 This dataset is public available for research. The details are described in [Moro et al., 2014].
 Please include this citation if you plan to use this database:
 [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014
-### short description of the files
+### Short Description of the Files
 1. [main_notebook.ipynb](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/main_notebook.ipynb) - Data preparation, EDA , train multiple models, tuning their parameters and validating them on multiple metrics.
 2. [Tuning_XGB_parameters.ipynb](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/Tuning_XGB_parameters.ipynb) - Tuning XGBoost parameters manually to show every step after changing any parameter.
 3. [Final_Test.ipynb](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/Final_Test.ipynb) - picking the best model and training it on full dataset then testing it on the second dataset and then saving this model to [model_1.bin](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/model_1.bin).
@@ -64,8 +64,17 @@ pipenv install
 4. Testing: There are three different ways to test this project [locally or on the cloud (PythonAnywhere) or using Docker]
 * Locally:
    1. open your terminal and run (predict.py) script , this will depoly a Flask webapp on your local machine with the best tuned model.
-   2. open another terminal and run (predict-test.py) this will test a pre-written customer to see its desicion, it should tell you the probability of his desicion.
-   3. (optional) if you want to test any other customer you should open bank.csv dataset, it contains all the test data and pick any customer and fill it in (predict-test.py) after opening it in you favorite IDE or in your notepad.
+   2. (optional) instead of using flask you can use -waitress or gunicorn depending on your OS- to deploy your webapp (they are production ready services). use these commands if you are on windows
+   ```py
+   pipenv install waitress
+   pipenv run waitress-serve --listen=0.0.0.0:9696 predict:app
+   ```
+   use this command if you are on linux
+   ```python
+   gunicorn --bind=0.0.0.0:9696 predict:app
+   ```
+   3. open another terminal and run (predict-test.py) this will test a pre-written customer to see its desicion, it should tell you the probability of his desicion.
+   4. (optional) if you want to test any other customer you should open bank.csv dataset, it contains all the test data and pick any customer and fill it in (predict-test.py) after opening it in you favorite IDE or in your notepad.
 * On the Cloud (PythonAnywhere):
    1. open your terminal and run (predict-test-pythonanywhere.py) this will test a pre-written customer to see its desicion.
    2. (optional) you can also open the same file and change the customer features to get difeerent response.
@@ -80,7 +89,32 @@ pipenv install
     docker run -it --rm -p 9696:9696 zoomcamp-midterm_project
     ```
    4. open another terminal and run (predict-test.py) this will test a pre-written customer to see its desicion, it should tell you the probability of his desicion.
-##
+
+I used this [repo](https://github.com/nindate/ml-zoomcamp-exercises/blob/main/how-to-use-pythonanywhere.md) from this amzing guy [nindate](https://github.com/nindate) to deploy my app to pythonanywhere.
+
+## The project in details
+Most of the magic happened in [main_notebook.ipynb](https://github.com/AbdassalamAhmad/customer_subscribtion_prediction/blob/main/main_notebook.ipynb) where I did the following:
+1. Data Preparation.
+2. Exploratory data analysis (EDA)  
+    - Explore our data more.
+    - Turning balance from long tail into normal distribution.
+    - Check for missing values.
+    - Looking at the target "y" distribution.
+    - Feauture important analysis.
+3. Training & Tuning Different Models
+    - [Splitting the data.](#3.1-Splitting-the-data.)
+    - [One-hot encoding.](#3.2-One-hot-encoding.)
+    - [Evaluation Metrics.](#3.3-Evaluation-Metrics)
+    - [LogisticRegression model.](#3.4-LogisticRegression-model.)
+    - [DecisionTreeClassifier model.](#3.5-DecisionTreeClassifier-model.)
+        1. [Best DecisionTreeClassifier model.](#3.6.A.The-Best-Random-Forest-Model)
+    - [RandomForestClassifier model.](#3.6-RandomForestClassifier-model.)
+        1. [Best RandomForestClassifier model](#3.6.A.The-Best-Random-Forest-Model)
+    - [XGBoost model.](#3.7-XGBoost-model.)
+        1. [Best XGBoost model.](#XGB-model-with-the-best-parameters-we-got-from-the-(GridSearchCV).**)
+
+
+
 
 
 
