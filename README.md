@@ -1,4 +1,4 @@
-# customer_subscribtion_prediction Project
+# customer_Subscription_prediction Project
 This is the mid-term project of the [Machine Learning Zoomcamp](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp) held by [DataTalksClub](https://datatalks.club/).
 I did a complete ML engineer job from analyzing , preparing the data then training and tuning multiple ML models and finally deploying the best model(XGBoost) with docker locally and pythonanywhere on the cloud. If you want to check my other small projects see [this Repo](https://github.com/AbdassalamAhmad/Machine-Learning-Zoomcamp)
 ## Problem Description
